@@ -1,0 +1,63 @@
+{
+    "name": "InputMapping",
+    "maps": [
+        {
+            "name": "Gamepad",
+            "id": "01e1b082-c3a8-48f5-9270-ad9ff2957eaf",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "1f287b3f-f256-42f3-bb11-fec43809a26f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "HandGrab",
+                    "type": "Button",
+                    "id": "fb1361d1-fafc-49c2-a81d-cd7303d1787b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4ea79216-5324-4151-95a5-bbc002167e1a",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "477ed640-bfae-4af8-8fed-ee827df8ed3d",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HandGrab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ade87ea6-e2c3-4676-9234-5b4a85d4d617",
+                    "path": "<DualShockGamepad>/buttonSouth",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HandGrab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
