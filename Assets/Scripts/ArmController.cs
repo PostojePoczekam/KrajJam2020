@@ -35,12 +35,17 @@ public class ArmController : MonoBehaviour
 
 	private void Update()
 	{
+		if (Gamepad.all.ToArray().Length <= _playerIndex) return;
+		
 		MoveArm(_gamepad.leftStick.ReadValue());
 		RotateArm(_gamepad.rightStick.ReadValue());
+		if (_gamepad.rightTrigger.wasPressedThisFrame) Grab();
+		if (_gamepad.rightTrigger.wasReleasedThisFrame) ReleaseGrab();
 	}
 
-	private void Awake()
-	{
+	private void Awake() {
+		if (Gamepad.all.ToArray().Length <= _playerIndex) return;
+		
 		_gamepad = Gamepad.all.ToArray()[_playerIndex];
 	}
 }
