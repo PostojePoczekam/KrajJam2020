@@ -33,6 +33,14 @@ public class @InputMapping : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Value"",
+                    ""id"": ""e4c96aff-7222-42ce-8452-210dcec2ef2b"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -48,9 +56,64 @@ public class @InputMapping : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""99d2a38a-8d26-49d4-a9ed-5739d404d67a"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""be9884b1-4c42-4b6d-bbe7-1f3398ff471b"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""b6f161a2-5a1c-4bf2-942c-27e869cc6797"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ccff5240-3901-4f23-a753-c3dc5a5f72c2"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""53e46d64-9b16-4a2d-ada0-6056ed87d220"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""477ed640-bfae-4af8-8fed-ee827df8ed3d"",
-                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
@@ -60,12 +123,23 @@ public class @InputMapping : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ade87ea6-e2c3-4676-9234-5b4a85d4d617"",
-                    ""path"": ""<DualShockGamepad>/buttonSouth"",
-                    ""interactions"": ""Press"",
+                    ""id"": ""5fb19fae-2af0-4c5b-94e1-2fe1ad54ddac"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""HandGrab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66973601-753b-4d26-a008-4af4fbe5d263"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -78,6 +152,7 @@ public class @InputMapping : IInputActionCollection, IDisposable
         m_Gamepad = asset.FindActionMap("Gamepad", throwIfNotFound: true);
         m_Gamepad_Move = m_Gamepad.FindAction("Move", throwIfNotFound: true);
         m_Gamepad_HandGrab = m_Gamepad.FindAction("HandGrab", throwIfNotFound: true);
+        m_Gamepad_Rotate = m_Gamepad.FindAction("Rotate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -129,12 +204,14 @@ public class @InputMapping : IInputActionCollection, IDisposable
     private IGamepadActions m_GamepadActionsCallbackInterface;
     private readonly InputAction m_Gamepad_Move;
     private readonly InputAction m_Gamepad_HandGrab;
+    private readonly InputAction m_Gamepad_Rotate;
     public struct GamepadActions
     {
         private @InputMapping m_Wrapper;
         public GamepadActions(@InputMapping wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gamepad_Move;
         public InputAction @HandGrab => m_Wrapper.m_Gamepad_HandGrab;
+        public InputAction @Rotate => m_Wrapper.m_Gamepad_Rotate;
         public InputActionMap Get() { return m_Wrapper.m_Gamepad; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -150,6 +227,9 @@ public class @InputMapping : IInputActionCollection, IDisposable
                 @HandGrab.started -= m_Wrapper.m_GamepadActionsCallbackInterface.OnHandGrab;
                 @HandGrab.performed -= m_Wrapper.m_GamepadActionsCallbackInterface.OnHandGrab;
                 @HandGrab.canceled -= m_Wrapper.m_GamepadActionsCallbackInterface.OnHandGrab;
+                @Rotate.started -= m_Wrapper.m_GamepadActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_GamepadActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_GamepadActionsCallbackInterface.OnRotate;
             }
             m_Wrapper.m_GamepadActionsCallbackInterface = instance;
             if (instance != null)
@@ -160,6 +240,9 @@ public class @InputMapping : IInputActionCollection, IDisposable
                 @HandGrab.started += instance.OnHandGrab;
                 @HandGrab.performed += instance.OnHandGrab;
                 @HandGrab.canceled += instance.OnHandGrab;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
             }
         }
     }
@@ -168,5 +251,6 @@ public class @InputMapping : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnHandGrab(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
     }
 }

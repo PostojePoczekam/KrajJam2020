@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class InputActionsBinder : MonoBehaviour {
 
 	public Vector2 LeftStickPosition => _input.Gamepad.Move.ReadValue<Vector2>();
+	public Vector2 RightStickPosition => _input.Gamepad.Rotate.ReadValue<Vector2>();
     public event Action OnHandGrabPerformed = () => { };
 
     public bool enableDebugs = false;

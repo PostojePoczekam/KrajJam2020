@@ -17,5 +17,4 @@ public class InteractableSpawner : MonoBehaviour {
 		newObj.transform.position = transform.position;
 		newObj.SetActive(true);
 	}
-	
 }

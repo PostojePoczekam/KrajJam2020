@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour {
 
-	public Rigidbody rigidbody => GetComponent<Rigidbody>();
+	[SerializeField] private Rigidbody rigidbody => GetComponent<Rigidbody>();
+	[SerializeField] private FixedJoint hingeJoint => GetComponent<FixedJoint>();
 
 	public void MoveTowards(Vector3 dir) {
 		rigidbody.velocity = dir;
+	}
+
+	public void SetConnectedBody(Rigidbody other) {
+		hingeJoint.connectedBody = other;
 	}
 
 }
