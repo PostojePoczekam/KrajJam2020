@@ -33,6 +33,14 @@ public class @InputMapping : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Value"",
+                    ""id"": ""e4c96aff-7222-42ce-8452-210dcec2ef2b"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -68,6 +76,17 @@ public class @InputMapping : IInputActionCollection, IDisposable
                     ""action"": ""HandGrab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66973601-753b-4d26-a008-4af4fbe5d263"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -78,6 +97,7 @@ public class @InputMapping : IInputActionCollection, IDisposable
         m_Gamepad = asset.FindActionMap("Gamepad", throwIfNotFound: true);
         m_Gamepad_Move = m_Gamepad.FindAction("Move", throwIfNotFound: true);
         m_Gamepad_HandGrab = m_Gamepad.FindAction("HandGrab", throwIfNotFound: true);
+        m_Gamepad_Rotate = m_Gamepad.FindAction("Rotate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -129,12 +149,14 @@ public class @InputMapping : IInputActionCollection, IDisposable
     private IGamepadActions m_GamepadActionsCallbackInterface;
     private readonly InputAction m_Gamepad_Move;
     private readonly InputAction m_Gamepad_HandGrab;
+    private readonly InputAction m_Gamepad_Rotate;
     public struct GamepadActions
     {
         private @InputMapping m_Wrapper;
         public GamepadActions(@InputMapping wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gamepad_Move;
         public InputAction @HandGrab => m_Wrapper.m_Gamepad_HandGrab;
+        public InputAction @Rotate => m_Wrapper.m_Gamepad_Rotate;
         public InputActionMap Get() { return m_Wrapper.m_Gamepad; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -150,6 +172,9 @@ public class @InputMapping : IInputActionCollection, IDisposable
                 @HandGrab.started -= m_Wrapper.m_GamepadActionsCallbackInterface.OnHandGrab;
                 @HandGrab.performed -= m_Wrapper.m_GamepadActionsCallbackInterface.OnHandGrab;
                 @HandGrab.canceled -= m_Wrapper.m_GamepadActionsCallbackInterface.OnHandGrab;
+                @Rotate.started -= m_Wrapper.m_GamepadActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_GamepadActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_GamepadActionsCallbackInterface.OnRotate;
             }
             m_Wrapper.m_GamepadActionsCallbackInterface = instance;
             if (instance != null)
@@ -160,6 +185,9 @@ public class @InputMapping : IInputActionCollection, IDisposable
                 @HandGrab.started += instance.OnHandGrab;
                 @HandGrab.performed += instance.OnHandGrab;
                 @HandGrab.canceled += instance.OnHandGrab;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
             }
         }
     }
@@ -168,5 +196,6 @@ public class @InputMapping : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnHandGrab(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
     }
 }

@@ -22,6 +22,7 @@ public class ArmBender : MonoBehaviour
 				transform.GetChild(i).forward = transform.GetChild(i).position - transform.GetChild(i + 1).position;
 		}
 
+		transform.GetChild(segmentsCount - 1).forward = _to.forward;
 	}
 
 	private void OnDrawGizmosSelected()

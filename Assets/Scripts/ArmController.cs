@@ -11,8 +11,15 @@ public class ArmController : MonoBehaviour
 
 	private void MoveArm(Vector2 delta) => _hand.Translate(-delta.x * _movementSpeed, 0f, -delta.y * _movementSpeed);
 
+	private void RotateArm(Vector2 direction)
+	{
+		//if
+	}
+
 	private void Update()
 	{
 		MoveArm(_input.LeftStickPosition);
+		RotateArm(_input.RightStickPosition);
 	}
+	
 }
