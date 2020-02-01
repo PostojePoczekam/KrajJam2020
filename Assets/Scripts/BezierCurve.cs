@@ -11,7 +11,7 @@ public static class BezierCurve
 
 		for (int i = 0; i < segmentsCount; i++)
 		{
-			float delta = i * 1 / (float)segmentsCount;
+			float delta = i * 1 / (segmentsCount - 1f);
 			yield return Vector3.Lerp(Vector3.Lerp(from, midpoint, delta), Vector3.Lerp(midpoint, to, delta), delta);
 		}
 	}
