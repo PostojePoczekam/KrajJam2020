@@ -21,6 +21,10 @@ public class ArmController : MonoBehaviour
 	private void Grab() {
 		_interactionHand.Grab();
 	}
+	
+	private void ReleaseGrab() {
+		_interactionHand.Release();
+	}
 
 	private void Update()
 	{
@@ -30,5 +34,6 @@ public class ArmController : MonoBehaviour
 
 	private void Start() {
 		_input.OnHandGrabPerformed += Grab;
+		_input.OnHandReleasePerformed += ReleaseGrab;
 	}
 }

@@ -41,6 +41,14 @@ public class @InputMapping : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""HandRelease"",
+                    ""type"": ""Button"",
+                    ""id"": ""dc7b7649-c9a0-4fcf-bac2-81e26b05984d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -125,7 +133,7 @@ public class @InputMapping : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""5fb19fae-2af0-4c5b-94e1-2fe1ad54ddac"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""HandGrab"",
@@ -142,6 +150,28 @@ public class @InputMapping : IInputActionCollection, IDisposable
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83362741-29d7-40cb-8ff7-92a6e87078fe"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HandRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cebf6c59-d3d2-4f8d-9251-c9ded7d71968"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HandRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -153,6 +183,7 @@ public class @InputMapping : IInputActionCollection, IDisposable
         m_Gamepad_Move = m_Gamepad.FindAction("Move", throwIfNotFound: true);
         m_Gamepad_HandGrab = m_Gamepad.FindAction("HandGrab", throwIfNotFound: true);
         m_Gamepad_Rotate = m_Gamepad.FindAction("Rotate", throwIfNotFound: true);
+        m_Gamepad_HandRelease = m_Gamepad.FindAction("HandRelease", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -205,6 +236,7 @@ public class @InputMapping : IInputActionCollection, IDisposable
     private readonly InputAction m_Gamepad_Move;
     private readonly InputAction m_Gamepad_HandGrab;
     private readonly InputAction m_Gamepad_Rotate;
+    private readonly InputAction m_Gamepad_HandRelease;
     public struct GamepadActions
     {
         private @InputMapping m_Wrapper;
@@ -212,6 +244,7 @@ public class @InputMapping : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Gamepad_Move;
         public InputAction @HandGrab => m_Wrapper.m_Gamepad_HandGrab;
         public InputAction @Rotate => m_Wrapper.m_Gamepad_Rotate;
+        public InputAction @HandRelease => m_Wrapper.m_Gamepad_HandRelease;
         public InputActionMap Get() { return m_Wrapper.m_Gamepad; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -230,6 +263,9 @@ public class @InputMapping : IInputActionCollection, IDisposable
                 @Rotate.started -= m_Wrapper.m_GamepadActionsCallbackInterface.OnRotate;
                 @Rotate.performed -= m_Wrapper.m_GamepadActionsCallbackInterface.OnRotate;
                 @Rotate.canceled -= m_Wrapper.m_GamepadActionsCallbackInterface.OnRotate;
+                @HandRelease.started -= m_Wrapper.m_GamepadActionsCallbackInterface.OnHandRelease;
+                @HandRelease.performed -= m_Wrapper.m_GamepadActionsCallbackInterface.OnHandRelease;
+                @HandRelease.canceled -= m_Wrapper.m_GamepadActionsCallbackInterface.OnHandRelease;
             }
             m_Wrapper.m_GamepadActionsCallbackInterface = instance;
             if (instance != null)
@@ -243,6 +279,9 @@ public class @InputMapping : IInputActionCollection, IDisposable
                 @Rotate.started += instance.OnRotate;
                 @Rotate.performed += instance.OnRotate;
                 @Rotate.canceled += instance.OnRotate;
+                @HandRelease.started += instance.OnHandRelease;
+                @HandRelease.performed += instance.OnHandRelease;
+                @HandRelease.canceled += instance.OnHandRelease;
             }
         }
     }
@@ -252,5 +291,6 @@ public class @InputMapping : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnHandGrab(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
+        void OnHandRelease(InputAction.CallbackContext context);
     }
 }
