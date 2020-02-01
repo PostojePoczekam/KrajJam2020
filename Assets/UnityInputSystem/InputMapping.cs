@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/InputMapping.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/UnityInputSystem/InputMapping.inputactions'
 
 using System;
 using System.Collections;
