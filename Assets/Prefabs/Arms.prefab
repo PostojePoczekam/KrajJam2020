@@ -85,8 +85,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e31ceae28db19b4a978e0f6d9ff983b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 0}
-  enableDebugs: 1
+  _rigidbody: {fileID: 56716883}
+  _grabbedObj: {fileID: 0}
+  _enableDebugs: 0
 --- !u!135 &1066445611014039638
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -474,8 +475,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e31ceae28db19b4a978e0f6d9ff983b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 0}
-  enableDebugs: 1
+  _rigidbody: {fileID: 4502006893133695598}
+  _grabbedObj: {fileID: 0}
+  _enableDebugs: 0
 --- !u!135 &7605753911265497436
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class ArmController : MonoBehaviour
 
 	private Vector2 _movementVector;
 
-	private void MoveArm(Vector2 delta) => _hand.MovePosition(_hand.position + new Vector3(-delta.x, 0f, -delta.y) * _movementSpeed);
+	private void MoveArm(Vector2 delta) => _hand.MovePosition(_hand.position + new Vector3(delta.x, 0f, delta.y) * _movementSpeed);
 	private void RotateArm(Vector2 forward)
 	{
 		if (forward.magnitude > 0.1f)
