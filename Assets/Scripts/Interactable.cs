@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour {
 
-	[SerializeField] private Rigidbody _rigidbody => GetComponent<Rigidbody>();
-	[SerializeField] private FixedJoint hingeJoint => GetComponent<FixedJoint>();
+	public Rigidbody _rigidbody { get; private set; }
+	// private FixedJoint _fixedJoint;
 
 	public void MoveTowards(Vector3 dir) {
 		_rigidbody.velocity = dir;
@@ -22,7 +22,7 @@ public class Interactable : MonoBehaviour {
 		// Debug.Log($"<color=gray>arm pos: {other.transform.position}</color>");
 		
 		transform.position = other.transform.position; 
-		hingeJoint.connectedBody = other;
+		// _fixedJoint.connectedBody = other;
 		
 		// Debug.Log($"<color=green>after</color>");
 		// Debug.Log($"<color=white>interactable pos: {transform.position}</color>");
@@ -30,7 +30,11 @@ public class Interactable : MonoBehaviour {
 	}
 	
 	public void ReleaseJoint() {
-		hingeJoint.connectedBody = null;
+		// _fixedJoint.connectedBody = null;
 	}
 
+	private void Start() {
+		_rigidbody = GetComponent<Rigidbody>(); 
+		// _fixedJoint = GetComponent<FixedJoint>();
+	}
 }

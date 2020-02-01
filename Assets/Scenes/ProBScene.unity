@@ -1399,7 +1399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2fe013150ebb843b5871aa3e08c8af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDebugs: 1
+  enableDebugs: 0
   speed: 150
   objetcsOnTape: []
 --- !u!65 &349094456
@@ -5650,7 +5650,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782953254}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 416f0760f3361824b8931a90e7119cf5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7178,6 +7178,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingTapeAreaL
       objectReference: {fileID: 0}
+    - target: {fileID: 7852266143097644122, guid: 26d810df65b97da4b8db5ce01d754848,
+        type: 3}
+      propertyPath: enableDebugs
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d810df65b97da4b8db5ce01d754848, type: 3}
 --- !u!1001 &8173385080272433528
@@ -7461,5 +7466,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2941345441442030327, guid: c37accf7e52c7d143b4474ec2390d3d5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c37accf7e52c7d143b4474ec2390d3d5, type: 3}
