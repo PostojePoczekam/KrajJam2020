@@ -42,6 +42,5 @@ public class ArmController : MonoBehaviour
 	private void Awake()
 	{
 		_gamepad = Gamepad.all.ToArray()[_playerIndex];
-		_input.OnHandReleasePerformed += ReleaseGrab;
 	}
 }
