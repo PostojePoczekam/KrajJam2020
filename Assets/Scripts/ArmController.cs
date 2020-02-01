@@ -2,33 +2,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 public class ArmController : MonoBehaviour
 {
 
-	[SerializeField] private InputActionsBinder _input;
 	[SerializeField] private InteractionHand _interactionHand;
-	[SerializeField] private Transform _hand;
+	[SerializeField] private Rigidbody _hand;
 	[SerializeField] private float _movementSpeed = 0.1f;
+	[SerializeField] private int _playerIndex;
+	private Gamepad _gamepad;
 
-	private void MoveArm(Vector2 delta) => _hand.Translate(-delta.x * _movementSpeed, 0f, -delta.y * _movementSpeed);
 
-	private void RotateArm(Vector2 direction)
+	private Vector2 _movementVector;
+
+	private void MoveArm(Vector2 delta) => _hand.MovePosition(_hand.position + new Vector3(-delta.x, 0f, -delta.y) * _movementSpeed);
+	private void RotateArm(Vector2 forward)
 	{
-		//if
+		if (forward.magnitude > 0.1f)
+			_hand.rotation = Quaternion.LookRotation(new Vector3(forward.x, 0f, forward.y));
 	}
 
-	private void Grab() {
+	private void Grab()
+	{
 		_interactionHand.Grab();
 	}
 
 	private void Update()
 	{
-		MoveArm(_input.LeftStickPosition);
-		RotateArm(_input.RightStickPosition);
+		MoveArm(_gamepad.leftStick.ReadValue());
+		RotateArm(_gamepad.rightStick.ReadValue());
 	}
 
-	private void Start() {
-		_input.OnHandGrabPerformed += Grab;
+	private void Awake()
+	{
+		_gamepad = Gamepad.all.ToArray()[_playerIndex];
 	}
 }
