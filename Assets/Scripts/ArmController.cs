@@ -28,6 +28,10 @@ public class ArmController : MonoBehaviour
 	{
 		_interactionHand.Grab();
 	}
+	
+	private void ReleaseGrab() {
+		_interactionHand.Release();
+	}
 
 	private void Update()
 	{
@@ -38,5 +42,6 @@ public class ArmController : MonoBehaviour
 	private void Awake()
 	{
 		_gamepad = Gamepad.all.ToArray()[_playerIndex];
+		_input.OnHandReleasePerformed += ReleaseGrab;
 	}
 }
