@@ -7,6 +7,7 @@ using UnityEngine;
 public class InteractionHand : MonoBehaviour {
 
 	[SerializeField] private Rigidbody _rigidbody;
+	[SerializeField] private FixedJoint _fixedJoint;
 	[SerializeField] private readonly HashSet<Interactable> _targets = new HashSet<Interactable>();
 	[SerializeField] private Interactable _grabbedObj;
 	[SerializeField] private bool _enableDebugs = false;
@@ -17,32 +18,31 @@ public class InteractionHand : MonoBehaviour {
 			if (_enableDebugs) Debug.Log($"<color=red> no target to be grabbed</color>");
 		} else {
 			if (_enableDebugs) Debug.Log($"<color=green> grabbing </color>", closest.gameObject);
-			
-			closest.SetJoint(_rigidbody);
+
+			_fixedJoint.connectedBody = closest._rigidbody;
+			// closest.SetJoint(_rigidbody);
 			_grabbedObj = closest;
 		}
 	}
 
 	public void Release() {
-		if (_grabbedObj is null) return;
-		
-		_grabbedObj.ReleaseJoint();
-		_grabbedObj = null;
+		// if (_grabbedObj is null) return;
+
+		_fixedJoint.connectedBody = null;
+
+		// _grabbedObj.ReleaseJoint();
+		// _grabbedObj = null;
 	}
 
 	private void OnTriggerEnter(Collider other) {
 		var interactable = other.GetComponent<Interactable>();
-
 		if (interactable == null) return;
-
 		_targets.Add(interactable);
 	}
 	
 	private void OnTriggerExit(Collider other) {
 		var interactable = other.GetComponent<Interactable>();
-
 		if (interactable == null) return;
-
 		_targets.Remove(interactable);
 	}
 

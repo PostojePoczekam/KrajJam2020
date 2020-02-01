@@ -14,7 +14,7 @@ public class InteractableSpawner : MonoBehaviour {
 
 	private void SpawnObject() {
 		var newObj = Instantiate(_temaplate);
-		newObj.transform.position = transform.position;
 		newObj.SetActive(true);
+		newObj.transform.position = transform.position;
 	}
 }
