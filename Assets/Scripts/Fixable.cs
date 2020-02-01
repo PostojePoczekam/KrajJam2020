@@ -1,6 +1,6 @@
 
 public class Fixable : Interactable {
 	
-	public bool isFixed { get; private set; }
+	public bool isFixed { get; protected set; }
 
 }
