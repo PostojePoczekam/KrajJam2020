@@ -20,8 +20,8 @@ public class ArmController : MonoBehaviour
 	private void MoveArm(Vector2 delta) => _hand.MovePosition(_hand.position + new Vector3(delta.x, 0f, delta.y) * _movementSpeed);
 	private void RotateArm(Vector2 forward)
 	{
-		if (forward.magnitude > 0.1f)
-			_hand.rotation = Quaternion.LookRotation(new Vector3(forward.x, 0f, forward.y));
+		if (forward.magnitude > 0.1f && forward.y < 0f)
+			_hand.rotation = Quaternion.LookRotation(-new Vector3(forward.x, 0f, forward.y));
 	}
 
 	private void Grab()
