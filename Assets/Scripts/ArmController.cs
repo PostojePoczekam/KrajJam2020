@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class ArmController : MonoBehaviour
 {
 
 	[SerializeField] private InputActionsBinder _input;
+	[SerializeField] private InteractionHand _interactionHand;
 	[SerializeField] private Transform _hand;
 	[SerializeField] private float _movementSpeed = 0.1f;
 
@@ -16,10 +18,17 @@ public class ArmController : MonoBehaviour
 		//if
 	}
 
+	private void Grab() {
+		_interactionHand.Grab();
+	}
+
 	private void Update()
 	{
 		MoveArm(_input.LeftStickPosition);
 		RotateArm(_input.RightStickPosition);
 	}
-	
+
+	private void Start() {
+		_input.OnHandGrabPerformed += Grab;
+	}
 }
