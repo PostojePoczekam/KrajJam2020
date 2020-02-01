@@ -2,13 +2,21 @@ fileFormatVersion: 2
 guid: 8e64d0d4e116d1a4ca3254a9a847e682
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: No Name
-    second: {fileID: 2100000, guid: 9a84829ac9e8a7641aaac102b1644eac, type: 2}
+    second: {fileID: 2100000, guid: a594e5ca479b0414bbb12a1f27417ebb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wire_204204204
+    second: {fileID: 2100000, guid: a594e5ca479b0414bbb12a1f27417ebb, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
