@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class InputActionsBinder : MonoBehaviour {
 
-    public event Action<Vector2> OnMovementInputGathered = (direction) => { };
+	public Vector2 LeftStickPosition => _input.Gamepad.Move.ReadValue<Vector2>();
     public event Action OnHandGrabPerformed = () => { };
 
     public bool enableDebugs = false;
@@ -15,15 +15,7 @@ public class InputActionsBinder : MonoBehaviour {
 
     private void Awake() {
         _input = new InputMapping();
-        _input.Gamepad.Move.performed += HandleMovement;
         _input.Gamepad.HandGrab.performed += HandleHandGrab;
-    }
-
-    private void HandleMovement(InputAction.CallbackContext context) {
-        Vector2 inputVal = context.ReadValue<Vector2>();
-        if (enableDebugs)
-            Debug.Log($"<color=white>left joystick val: {inputVal}</color>");
-        OnMovementInputGathered(inputVal);
     }
     
     private void HandleHandGrab(InputAction.CallbackContext context) {
