@@ -19,7 +19,9 @@ public class InteractionHand : MonoBehaviour {
 			allOverlappingColliders.Select(x => x.GetComponent<Interactable>())
 				.Where(x => x != null)
 				.OrderByDescending(x => GetDistance(x.transform.position))
-				.First();
+				.FirstOrDefault();
+
+		if (_grabbedObj == null) return;
 		
 		float GetDistance(Vector3 pos) => (pos - transform.position).magnitude;
 		
