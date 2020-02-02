@@ -11,7 +11,7 @@ public class Fixable : Interactable {
 	}
 
 	protected bool IsInBlowtorchRange() {
-		var colls = Physics.OverlapSphere(transform.position, 0.1f);
+		var colls = Physics.OverlapSphere(transform.position, 0.4f);
 		var xxd = colls.Any(x => x.GetComponent<BlowtorchFlame>() != null);
 		
 		foreach (var VARIABLE in colls) {
@@ -20,11 +20,11 @@ public class Fixable : Interactable {
 				xxd = true;
 		}
 		
-		if (xxd) {
-			Debug.Log($"<color=green>raycast udany</color>");
-		} else {
-			Debug.Log($"<color=red>raycast nieudany</color>");
-		}
+		// if (xxd) {
+		// 	Debug.Log($"<color=green>raycast udany</color>");
+		// } else {
+		// 	Debug.Log($"<color=red>raycast nieudany</color>");
+		// }
 		return xxd;
 	}
 
