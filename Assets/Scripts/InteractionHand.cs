@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class InteractionHand : MonoBehaviour {
 
+	public static event Action OnGrab = () => { };
+
 	[SerializeField] private Rigidbody _rigidbody;
 	[SerializeField] private FixedJoint _fixedJoint;
 	// [SerializeField] private List<Interactable> _targets = new List<Interactable>();
@@ -25,7 +27,8 @@ public class InteractionHand : MonoBehaviour {
 		if (_grabbedObj == null) return;
 		
 		float GetDistance(Vector3 pos) => (pos - transform.position).magnitude;
-		
+
+		OnGrab();
 		_grabbedObj.transform.position = transform.position;
 		_fixedJoint.connectedBody = _grabbedObj._rigidbody;
 		_grabbedObj.GrabThis(this);
