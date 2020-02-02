@@ -28,7 +28,9 @@ public class Interactable : MonoBehaviour {
 	// }
 	
 	protected virtual void ReleaseThis(InteractionHand hand) {
+		_rigidbody.velocity = Vector3.zero;
 		OnForceRelease?.Invoke();
+		_rigidbody.velocity = Vector3.zero;
 		_rigidbody.AddForce(Vector3.up * _releaseForceMultiplier, ForceMode.VelocityChange);
 	}
 

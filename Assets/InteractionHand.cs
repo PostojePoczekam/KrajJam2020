@@ -13,7 +13,7 @@ public class InteractionHand : MonoBehaviour {
 	[SerializeField] private bool _enableDebugs = false;
 
 	public void Grab() {
-		Collider[] allOverlappingColliders = Physics.OverlapSphere(transform.position, 0.5f);
+		Collider[] allOverlappingColliders = Physics.OverlapSphere(transform.position - (transform.forward + Vector3.up) * 0.5f, 0.8f);
 
 		_grabbedObj =  
 			allOverlappingColliders
@@ -38,6 +38,7 @@ public class InteractionHand : MonoBehaviour {
 		_grabbedObj.OnForceRelease -= Release;
 		StartCoroutine(Wake());
 
+		_grabbedObj = null;
 		// if(_targets.Contains(_grabbedObj))
 		// 	_targets.Remove(_grabbedObj);
 	}
@@ -45,6 +46,13 @@ public class InteractionHand : MonoBehaviour {
 	private IEnumerator Wake() {
 		yield return new WaitForFixedUpdate();
 		_grabbedObj?._rigidbody?.WakeUp();
+	}
+
+	private void Update() {
+		if (!_grabbedObj)
+			return;
+
+		_grabbedObj.transform.position = transform.position - (transform.forward + Vector3.up) * 0.25f;
 	}
 
 	private void OnDestroy() {
