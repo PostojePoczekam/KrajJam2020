@@ -16,7 +16,8 @@ public class InteractionHand : MonoBehaviour {
 		Collider[] allOverlappingColliders = Physics.OverlapSphere(transform.position, 0.5f);
 
 		_grabbedObj =  
-			allOverlappingColliders.Select(x => x.GetComponent<Interactable>())
+			allOverlappingColliders
+				.Select(x => x.GetComponent<Interactable>())
 				.Where(x => x != null)
 				.OrderByDescending(x => GetDistance(x.transform.position))
 				.FirstOrDefault();
@@ -25,6 +26,7 @@ public class InteractionHand : MonoBehaviour {
 		
 		float GetDistance(Vector3 pos) => (pos - transform.position).magnitude;
 		
+		_grabbedObj.transform.position = transform.position;
 		_fixedJoint.connectedBody = _grabbedObj._rigidbody;
 		_grabbedObj.GrabThis();
 		_grabbedObj.OnForceRelease += Release;
@@ -34,8 +36,19 @@ public class InteractionHand : MonoBehaviour {
 		_fixedJoint.connectedBody = null;
 		if (_grabbedObj == null) return;
 		_grabbedObj.OnForceRelease -= Release;
+		StartCoroutine(Wake());
+
 		// if(_targets.Contains(_grabbedObj))
 		// 	_targets.Remove(_grabbedObj);
+	}
+
+	private IEnumerator Wake() {
+		yield return new WaitForFixedUpdate();
+		_grabbedObj?._rigidbody?.WakeUp();
+	}
+
+	private void OnDestroy() {
+		StopAllCoroutines();
 	}
 
 	// private void RemoveObject(Interactable obj) {

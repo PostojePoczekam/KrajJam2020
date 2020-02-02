@@ -16,6 +16,7 @@ public class Interactable : MonoBehaviour {
 	}
 
 	public void GrabThis() {
+		// _rigidbody.MovePosition
 		_rigidbody.constraints = RigidbodyConstraints.None;
 	}
 
