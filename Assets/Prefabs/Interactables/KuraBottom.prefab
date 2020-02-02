@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2177720300530758985}
   - component: {fileID: 2177720300530758999}
   m_Layer: 0
-  m_Name: msh_KuraBot
+  m_Name: KuraBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b121008d0de94c2ba9121dce39b7400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _releaseForceMultiplier: 4
 --- !u!136 &2177720300530758999
 CapsuleCollider:
   m_ObjectHideFlags: 0
