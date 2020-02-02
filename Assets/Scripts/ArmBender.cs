@@ -14,8 +14,8 @@ public class ArmBender : MonoBehaviour
 	private void Update()
 	{
 		int segmentsCount = transform.childCount;
-		float offset = Vector3.Cross(_from.forward, _to.forward).y * (float)_side;
-		var points = BezierCurve.GetPoints(_from.position, _to.position, _midpoint.position + Vector3.right * offset * _elbowOffset * (float)_side, segmentsCount).ToList();
+		float offset = Vector3.Cross(_from.forward, _to.forward).y * (float)_side / 5f;
+		var points = BezierCurve.GetPoints(_from.position, _to.position, _midpoint.position + Vector3.right * (offset + _elbowOffset * (float)_side), segmentsCount).ToList();
 		for (int i = 0; i < segmentsCount; i++)
 		{
 			transform.GetChild(i).position = points[i];
