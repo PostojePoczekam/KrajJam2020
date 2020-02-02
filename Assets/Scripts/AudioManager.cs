@@ -5,14 +5,17 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
 
-	private AudioSource _audioSource;
+	public AudioSource _audioSource;
+	public AudioSource applause;
+	public AudioSource onpickup;
+	public AudioSource onDrop;
 
 	private void Start() {
-		_audioSource = GetComponent<AudioSource>();
+		
 		_audioSource.playOnAwake = true;
 		_audioSource.Play();
-	}
-	
-	
 
+		Arm.OnFixed += () => { applause.Play();};
+		InteractionHand.OnGrab += () => onpickup.Play();
+	}
 }
