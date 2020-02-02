@@ -1,12 +1,10 @@
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-
-public class BottomChicken : Fixable {
-
+public class BandAid : Interactable
+{
 	public void SetFixed(Transform newParent) {
-		Debug.Log($"<color=green>fixed</color>", gameObject);
-		// isPickable = false;
-		// isFixed = true;
 		transform.parent = newParent;
 		transform.position = newParent.position;
 		transform.localRotation = Quaternion.identity;

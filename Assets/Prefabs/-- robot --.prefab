@@ -513,6 +513,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7010161487808789826}
     m_Modifications:
+    - target: {fileID: 56716882, guid: 7966d7781bb05aa45a1c1ac069a7807f, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.000000029802322
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217153828, guid: 7966d7781bb05aa45a1c1ac069a7807f, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.000000029802322
+      objectReference: {fileID: 0}
     - target: {fileID: 479339729347127617, guid: 7966d7781bb05aa45a1c1ac069a7807f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -567,6 +575,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066445611014039638, guid: 7966d7781bb05aa45a1c1ac069a7807f,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066445611014039638, guid: 7966d7781bb05aa45a1c1ac069a7807f,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502006893031666470, guid: 7966d7781bb05aa45a1c1ac069a7807f,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.000000029802322
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502006893133695593, guid: 7966d7781bb05aa45a1c1ac069a7807f,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.000000029802322
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605753911265497436, guid: 7966d7781bb05aa45a1c1ac069a7807f,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605753911265497436, guid: 7966d7781bb05aa45a1c1ac069a7807f,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7918598124405929547, guid: 7966d7781bb05aa45a1c1ac069a7807f,
         type: 3}
