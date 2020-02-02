@@ -10,7 +10,7 @@ public class UpperChicken : Fixable {
 	
 	private void OnCollisionEnter(Collision other) {
 		var bottom = other.collider.GetComponent<BottomChicken>();
-		if (bottom == null) return;
+		if (bottom == null || bottom.isFixed || this.isFixed ) return;
 
 		if (Vector3.Dot(transform.forward.normalized, bottom.transform.forward.normalized) < 0.8f) {
 			Debug.Log($"<color=red> failed to match chickens due to rotation. dot  = {Vector3.Dot(transform.rotation.eulerAngles.normalized, bottom.transform.rotation.eulerAngles.normalized)}</color>");
