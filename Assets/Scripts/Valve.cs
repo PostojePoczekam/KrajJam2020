@@ -1,9 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
 
 public class Valve : Fixable {
+
+	public static event Action OnUnpinned;
+	
 	private bool _isHeld = false;
 	private float _angleSum = 0f;
 	private Vector3 _previousForward;
@@ -27,6 +31,7 @@ public class Valve : Fixable {
 		_previousForward = transform.GetChild(0).forward;
 
 		if (_angleSum > 1800f) {
+			OnUnpinned?.Invoke();
 			isFixed = true;
 			transform.GetChild(0).gameObject.AddComponent<Fixable>().isFixed = true;
 			transform.GetChild(0).SetParent(transform.parent);
