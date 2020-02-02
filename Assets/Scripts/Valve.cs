@@ -20,7 +20,7 @@ public class Valve : Fixable {
 	}
 
 	private void Update() {
-		if (isFixed)
+		if (isFixed || transform.childCount == 0)
 			return;
 
 		_angleSum += Mathf.Abs(Vector3.Angle(_previousForward, transform.GetChild(0).forward));
