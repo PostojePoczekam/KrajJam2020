@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fixable : Interactable {
 
-	public bool isFixed { get; protected set; } = false;
+	public bool isFixed { get;  set; } = false;
 
 	void Update() {
 		Debug.DrawRay(transform.position, Vector3.up, Color.cyan, 2f);
