@@ -10,7 +10,7 @@ Material:
   m_Name: mat_FakeVolumeLight
   m_Shader: {fileID: 4800000, guid: 4ff9c4f46c2eea948913ffff51fb5963, type: 3}
   m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 2
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -84,13 +84,13 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - __dirty: 1
+    - __dirty: 0
     - _bias: -0.4
     - _fade: 2
     - _power: 1
     - _scale: 1.28
     - _uvspeed: 2
     m_Colors:
-    - _Color: {r: 0.206, g: 0.14298822, b: 0, a: 1}
+    - _Color: {r: 0.20599997, g: 0.14298818, b: 0, a: 1}
     - _EmissionColor: {r: 8.47419, g: 2.1740067, b: 0, a: 1}
     - _uvspeed: {r: 0.005, g: 0.01, b: 0, a: 0}
