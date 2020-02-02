@@ -24,7 +24,7 @@ public class UpperChicken : Fixable {
 		isFixed = true;
 		particless.gameObject.SetActive(true);
 		particless.Play();
-		ReleaseThis();
+		ReleaseThis(null);
 		CancelInvoke(nameof(ResetParticles));
 		Invoke(nameof(ResetParticles), particlesTimeout);
 	}

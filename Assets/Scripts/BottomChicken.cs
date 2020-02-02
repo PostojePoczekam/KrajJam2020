@@ -10,7 +10,7 @@ public class BottomChicken : Fixable {
 		transform.parent = newParent;
 		transform.position = newParent.position;
 		transform.localRotation = Quaternion.identity;
-		ReleaseThis();
+		ReleaseThis(null);
 		Destroy(_rigidbody);
 		Destroy(this);
 	}

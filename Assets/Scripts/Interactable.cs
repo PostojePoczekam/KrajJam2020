@@ -17,7 +17,7 @@ public class Interactable : MonoBehaviour {
 		_rigidbody.velocity = dir;
 	}
 
-	public void GrabThis() {
+	public virtual void GrabThis(InteractionHand hand) {
 		// _rigidbody.MovePosition
 		_rigidbody.constraints = RigidbodyConstraints.None;
 	}
@@ -27,7 +27,7 @@ public class Interactable : MonoBehaviour {
 	// 	transform.position = other.transform.position;
 	// }
 	
-	protected void ReleaseThis() {
+	protected virtual void ReleaseThis(InteractionHand hand) {
 		OnForceRelease?.Invoke();
 		_rigidbody.AddForce(Vector3.up * _releaseForceMultiplier, ForceMode.VelocityChange);
 	}

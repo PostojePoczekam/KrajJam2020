@@ -10,7 +10,7 @@ Material:
   m_Name: mat_Kura
   m_Shader: {fileID: 4800000, guid: 3b1abb26747b57a468f3bc10a8a4b1c9, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -73,7 +73,9 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0
+    - _emissive: 0
     - _gloss: 0
+    - _metallic: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

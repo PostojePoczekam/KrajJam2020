@@ -28,7 +28,7 @@ public class InteractionHand : MonoBehaviour {
 		
 		_grabbedObj.transform.position = transform.position;
 		_fixedJoint.connectedBody = _grabbedObj._rigidbody;
-		_grabbedObj.GrabThis();
+		_grabbedObj.GrabThis(this);
 		_grabbedObj.OnForceRelease += Release;
 	}
 

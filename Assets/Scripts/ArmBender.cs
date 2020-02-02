@@ -13,7 +13,7 @@ public class ArmBender : MonoBehaviour
 
 	private void Update()
 	{
-		int segmentsCount = transform.childCount;
+		int segmentsCount = transform.childCount -1;
 		float offset = Vector3.Cross(_from.forward, _to.forward).y * (float)_side / 5f;
 		var points = BezierCurve.GetPoints(_from.position, _to.position, _midpoint.position + Vector3.right * (offset + _elbowOffset * (float)_side), segmentsCount).ToList();
 		for (int i = 0; i < segmentsCount; i++)
@@ -23,7 +23,9 @@ public class ArmBender : MonoBehaviour
 				transform.GetChild(i).forward = transform.GetChild(i).position - transform.GetChild(i + 1).position;
 		}
 
-		transform.GetChild(segmentsCount - 1).forward = _to.forward;
+		transform.GetChild(segmentsCount - 1).forward = transform.GetChild(segmentsCount - 2).forward;
+		transform.GetChild(segmentsCount).forward = _to.forward + Vector3.up;
+		transform.GetChild(segmentsCount).position = transform.GetChild(segmentsCount - 1).position - transform.GetChild(segmentsCount).forward *0.1f;
 	}
 
 	private void OnDrawGizmosSelected()
