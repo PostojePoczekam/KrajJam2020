@@ -14,7 +14,7 @@ public class Scoreboard : MonoBehaviour
 
 	private void Update()
 	{
-		_timer += Time.deltaTime;
+		_timer += Time.deltaTime* _animationSpeed;
 		_timer = Mathf.Clamp01(_timer);
 		transform.localScale = Vector3.one + Vector3.one * _animationCurve.Evaluate(_timer);
 	}
