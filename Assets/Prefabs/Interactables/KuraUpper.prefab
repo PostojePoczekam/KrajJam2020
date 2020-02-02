@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2413973358989192276}
   - component: {fileID: 2413973358989192277}
   m_Layer: 0
-  m_Name: msh_KuraTOP
+  m_Name: KuraUpper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,3 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3cb1eac60fc47068f91e28ca2ba8179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _releaseForceMultiplier: 4
+  enableDebugs: 0

@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour {
 
-	public event Action OnForceRelease; 
+	public event Action OnForceRelease;
+
+	public float _releaseForceMultiplier = 1f;
 
 	public Rigidbody _rigidbody { get; private set; }
 	// public bool isPickable { get; protected set; } = true;
@@ -16,6 +18,7 @@ public class Interactable : MonoBehaviour {
 	}
 
 	public void GrabThis() {
+		// _rigidbody.MovePosition
 		_rigidbody.constraints = RigidbodyConstraints.None;
 	}
 
@@ -26,6 +29,7 @@ public class Interactable : MonoBehaviour {
 	
 	protected void ReleaseThis() {
 		OnForceRelease?.Invoke();
+		_rigidbody.AddForce(Vector3.up * _releaseForceMultiplier, ForceMode.VelocityChange);
 	}
 
 	private void Start() {
