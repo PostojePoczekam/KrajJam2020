@@ -4,13 +4,13 @@ using UnityEngine;
 using System;
 public class ScrapCollector : MonoBehaviour
 {
-	public event Action OnPointsEarned;
+	public event Action OnScrapCollected;
 
 	private void OnTriggerEnter(Collider collider)
 	{
 		var fixable = collider.gameObject.GetComponent<Fixable>();
 		if (fixable != null && fixable.isFixed)
-			OnPointsEarned?.Invoke();
+			OnScrapCollected?.Invoke();
 
 		Destroy(collider.transform.gameObject);
 	}

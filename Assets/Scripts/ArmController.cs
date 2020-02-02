@@ -21,7 +21,6 @@ public class ArmController : MonoBehaviour
 	private void MoveArm(Vector2 delta)
 	{
 		var newPos = _hand.position + new Vector3(delta.x, 0f, delta.y) * _movementSpeed;
-		Debug.Log(newPos);
 		if (_bounds.CanMove(newPos))
 			_hand.MovePosition(newPos);
 	}
