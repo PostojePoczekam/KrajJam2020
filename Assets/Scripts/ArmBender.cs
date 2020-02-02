@@ -24,8 +24,8 @@ public class ArmBender : MonoBehaviour
 		}
 
 		transform.GetChild(segmentsCount - 1).forward = transform.GetChild(segmentsCount - 2).forward;
-		//transform.GetChild(segmentsCount).position = transform.GetChild(segmentsCount - 1).position;
 		transform.GetChild(segmentsCount).forward = _to.forward + Vector3.up;
+		transform.GetChild(segmentsCount).position = transform.GetChild(segmentsCount - 1).position - transform.GetChild(segmentsCount).forward *0.1f;
 	}
 
 	private void OnDrawGizmosSelected()
