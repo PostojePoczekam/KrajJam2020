@@ -12,8 +12,8 @@ public class HookAnimation : MonoBehaviour
 
     private float _target;
     private void Update() {
-        _target = Mathf.Lerp(_target, _gamepad.rightTrigger.ReadValue(), Time.deltaTime * 10f);
         if (Gamepad.all.ToArray().Length <= _playerIndex) return;
+        _target = Mathf.Lerp(_target, _gamepad.rightTrigger.ReadValue(), Time.deltaTime * 10f);
 
         _topFinger.localRotation = Quaternion.Lerp(Quaternion.Euler(0f, -30f, 0f), Quaternion.identity, _target);
         _bottomFinger.localRotation = Quaternion.Lerp(Quaternion.Euler(0f, 30f, 0f), Quaternion.identity, _target);
