@@ -7,6 +7,7 @@ public class Arm : Fixable {
 		var bandaid = collision.collider.GetComponent<BandAid>();
 		if (bandaid == null || this.isFixed) return;
 		isFixed = true;
+		bandaid.SetFixed(transform);
 		ReleaseThis(null);
 	}
 }
