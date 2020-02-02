@@ -24,10 +24,10 @@ public class Scoreboard : MonoBehaviour
 		FindObjectOfType<ScrapCollector>().OnScrapCollected += EarnPoints;
 	}
 
-	private void EarnPoints()
+	private void EarnPoints(int points)
 	{
 		_timer = 0;
-		_points += 10;
+		_points += points;
 		_textMesh.text = _points.ToString();
 	}
 }
