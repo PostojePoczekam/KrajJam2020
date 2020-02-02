@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour {
 		muzaKevina.Play();
 
 		Arm.OnFixed += () => { onFixed.Play();};
+		Valve.OnUnpinned += () => { onFixed.Play();};
 		InteractionHand.OnGrab += () => onpickup.Play();
 		ScrapCollector.OnAnyScrapCollected += () => applause.Play();
 	}
