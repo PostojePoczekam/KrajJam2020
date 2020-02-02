@@ -15,7 +15,7 @@ public class UpperChicken : Fixable {
 		if (bottom == null || bottom.isFixed || this.isFixed ) return;
 		if (!IsInBlowtorchRange()) return;
 
-		if (Vector3.Dot(transform.forward.normalized, bottom.transform.forward.normalized) < 0.8f) {
+		if (Vector3.Dot(transform.forward.normalized, bottom.transform.forward.normalized) < 0.55f) {
 			Debug.Log($"<color=red> failed to match chickens due to rotation. dot  = {Vector3.Dot(transform.rotation.eulerAngles.normalized, bottom.transform.rotation.eulerAngles.normalized)}</color>");
 			return;
 		}
