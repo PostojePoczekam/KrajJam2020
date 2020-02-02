@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mat_Pipe
+  m_Name: mat_Pipe 1
   m_Shader: {fileID: 4800000, guid: 2d8564f1a6ae00d4cbfae40c70d23a4b, type: 3}
   m_ShaderKeywords: _ALPHABLEND_ON
   m_LightmapFlags: 4
@@ -64,7 +64,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
-    - _Float1: 1
+    - _Float1: -0.43
     - _GlossMapScale: 1
     - _Glossiness: 0.638
     - _GlossyReflections: 1
@@ -79,10 +79,10 @@ Material:
     - _ZWrite: 0
     - __dirty: 0
     - _emissive: 0
-    - _gloss: 0.43
+    - _gloss: 0.48
     - _metallic: 0.633
     m_Colors:
     - _Color: {r: 0.333, g: 0.333, b: 0.333, a: 1}
-    - _Color0: {r: 0.872, g: 0.872, b: 0.872, a: 0}
+    - _Color0: {r: 0.5333101, g: 0.936, b: 0.497952, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _uvspeed: {r: 0, g: 0, b: 0, a: 0}
