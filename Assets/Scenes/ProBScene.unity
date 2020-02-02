@@ -1456,30 +1456,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8531155555318178316, guid: c37accf7e52c7d143b4474ec2390d3d5,
-        type: 3}
-      propertyPath: _temaplates.Array.data[0]
-      value: 
-      objectReference: {fileID: 462265762153339680, guid: 8a19e452c29a7ef47b02d1e09c717b9b,
-        type: 3}
-    - target: {fileID: 8531155555318178316, guid: c37accf7e52c7d143b4474ec2390d3d5,
-        type: 3}
-      propertyPath: _temaplates.Array.data[1]
-      value: 
-      objectReference: {fileID: 462265762153339680, guid: 8a19e452c29a7ef47b02d1e09c717b9b,
-        type: 3}
-    - target: {fileID: 8531155555318178316, guid: c37accf7e52c7d143b4474ec2390d3d5,
-        type: 3}
-      propertyPath: _temaplates.Array.data[2]
-      value: 
-      objectReference: {fileID: 4844331820510795161, guid: 96cf0f0fe06663645bb0474eedfe5062,
-        type: 3}
-    - target: {fileID: 8531155555318178316, guid: c37accf7e52c7d143b4474ec2390d3d5,
-        type: 3}
-      propertyPath: _temaplates.Array.data[3]
-      value: 
-      objectReference: {fileID: 4844331820510795161, guid: 96cf0f0fe06663645bb0474eedfe5062,
-        type: 3}
     - target: {fileID: 8531155555318178317, guid: c37accf7e52c7d143b4474ec2390d3d5,
         type: 3}
       propertyPath: m_Name
@@ -4831,6 +4807,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828230621960219686, guid: eda5d8e12a45af74b9252b036c6be86a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eda5d8e12a45af74b9252b036c6be86a, type: 3}
@@ -12893,30 +12874,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8531155555318178316, guid: c37accf7e52c7d143b4474ec2390d3d5,
-        type: 3}
-      propertyPath: _temaplates.Array.data[1]
-      value: 
-      objectReference: {fileID: 462265762153339680, guid: 8a19e452c29a7ef47b02d1e09c717b9b,
-        type: 3}
-    - target: {fileID: 8531155555318178316, guid: c37accf7e52c7d143b4474ec2390d3d5,
-        type: 3}
-      propertyPath: _temaplates.Array.data[2]
-      value: 
-      objectReference: {fileID: 462265762153339680, guid: 8a19e452c29a7ef47b02d1e09c717b9b,
-        type: 3}
-    - target: {fileID: 8531155555318178316, guid: c37accf7e52c7d143b4474ec2390d3d5,
-        type: 3}
-      propertyPath: _temaplates.Array.data[3]
-      value: 
-      objectReference: {fileID: 4844331820510795161, guid: 96cf0f0fe06663645bb0474eedfe5062,
-        type: 3}
-    - target: {fileID: 8531155555318178316, guid: c37accf7e52c7d143b4474ec2390d3d5,
-        type: 3}
-      propertyPath: _temaplates.Array.data[4]
-      value: 
-      objectReference: {fileID: 4844331820510795161, guid: 96cf0f0fe06663645bb0474eedfe5062,
-        type: 3}
     - target: {fileID: 8531155555318178317, guid: c37accf7e52c7d143b4474ec2390d3d5,
         type: 3}
       propertyPath: m_Name
@@ -12977,6 +12934,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2941345441442030327, guid: c37accf7e52c7d143b4474ec2390d3d5, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c37accf7e52c7d143b4474ec2390d3d5, type: 3}
