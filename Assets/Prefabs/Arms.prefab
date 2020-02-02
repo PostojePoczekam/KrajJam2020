@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 56716882}
   - component: {fileID: 3410163074333138360}
   - component: {fileID: 1066445611014039638}
+  - component: {fileID: 233308826473949184}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -86,6 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 56716883}
+  _fixedJoint: {fileID: 233308826473949184}
   _grabbedObj: {fileID: 0}
   _enableDebugs: 0
 --- !u!135 &1066445611014039638
@@ -101,6 +103,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!138 &233308826473949184
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56716880}
+  m_ConnectedBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &296852892
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,6 +419,7 @@ GameObject:
   - component: {fileID: 4502006893133695593}
   - component: {fileID: 6326222847328524756}
   - component: {fileID: 7605753911265497436}
+  - component: {fileID: 7791003004340412354}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -476,6 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 4502006893133695598}
+  _fixedJoint: {fileID: 7791003004340412354}
   _grabbedObj: {fileID: 0}
   _enableDebugs: 0
 --- !u!135 &7605753911265497436
@@ -491,6 +509,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!138 &7791003004340412354
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4502006893133695592}
+  m_ConnectedBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &4502006894400915836
 GameObject:
   m_ObjectHideFlags: 0
